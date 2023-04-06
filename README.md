@@ -1,6 +1,6 @@
 # DAY SCHEDULER
--[Live Site]()
--[Github]()
+-[Live Site](https://lauriefish22.github.io/day-scheduler/)
+-[Github](https://github.com/lauriefish22/day-scheduler)
 
 ## SITE SCREENSHOT
 ![assets](./Assets/Screenshot%202023-04-06%20at%203.09.27%20PM.png)

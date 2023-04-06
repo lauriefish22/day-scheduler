@@ -6,17 +6,21 @@ var currentHour = dayjs().hour();
 
 $('#currentDay').text(currentData);
 
-$('saveBtn').on('click', function () {
+$('.saveBtn').on('click', function () {
+  console.log(this);
   var text = $(this).siblings('.description').val();
   var time = $(this).parent().attr('id');
 
-  localStorage.setItem(text, time);
+  localStorage.setItem(time, text);
 });
 
 function timeTracker() {
   $('.time-block').each(function () {
-    var plannerHour = $(this).attr("id").split('hour')[1];
-
+    var timeBlockId = $(this).attr('id');
+    var plannerHour = timeBlockId.split('hour')[1];
+    var existingNote = localStorage.getItem(timeBlockId);
+    //console.log(existingNote);
+    console.log(plannerHour, currentHour);
 
     if (plannerHour < currentHour) {
       $(this).addClass('past');
@@ -29,15 +33,15 @@ function timeTracker() {
 }
 
 
-$('#9am .description').val(localStorage.getItem('9am'));
-$('#10am .description').val(localStorage.getItem('10am'));
-$('#11am .description').val(localStorage.getItem('11am'));
-$('#12pm .description').val(localStorage.getItem('12m'));
-$('#1pm .description').val(localStorage.getItem('1pm'));
-$('#2pm .description').val(localStorage.getItem('2pm'));
-$('#3pm .description').val(localStorage.getItem('3pm'));
-$('#4pm .description').val(localStorage.getItem('4pm'));
-$('#5pm .description').val(localStorage.getItem('5pm'));
+$('#hour9am .description').val(localStorage.getItem('hour9am'));
+$('#hour10am .description').val(localStorage.getItem('hour10am'));
+$('#hour11am .description').val(localStorage.getItem('hour11am'));
+$('#hour12pm .description').val(localStorage.getItem('hour12m'));
+$('#hour1pm .description').val(localStorage.getItem('hour1pm'));
+$('#hour2pm .description').val(localStorage.getItem('hour2pm'));
+$('#hour3pm .description').val(localStorage.getItem('hour3pm'));
+$('#hour4pm .description').val(localStorage.getItem('hour4pm'));
+$('#hour5pm .description').val(localStorage.getItem('hour5pm'));
 
 timeTracker();
   //

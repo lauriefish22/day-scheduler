@@ -6,6 +6,13 @@ var currentHour = dayjs().hour();
 
 $('#currentDay').text(currentData);
 
+$('saveBtn').on('click', function () {
+  var text = $(this).siblings('.description').val();
+  var time = $(this).parent().attr('id');
+
+  localStorage.setItem(text, time);
+});
+
 function timeTracker() {
   $('.time-block').each(function () {
     var plannerHour = $(this).attr("id").split('hour')[1];
